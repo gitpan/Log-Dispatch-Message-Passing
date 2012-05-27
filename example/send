@@ -1,0 +1,24 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Log::Dispatch;
+use Log::Dispatch::Log::Stash;
+use Log::Stash::DSL;
+
+my $log = Log::Dispatch->new;
+
+$log->add(Log::Dispatch::Log::Stash->new(
+      name      => 'myapp_aggregate_log',
+      min_level => 'debug',
+      output    => log_chain {
+          output zmq => (
+              class => 'ZeroMQ',
+              connect => 'tcp://127.0.0.1:5558',
+          );
+      },
+));
+$log->warn($_) for qw/ foo bar baz /;
+
+sleep 1; # Allow time for ZeroMQ to actually flush the messages..
+
