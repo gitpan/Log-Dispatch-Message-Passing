@@ -23,9 +23,9 @@ no_index:
     - t
 requires:
   Log::Dispatch: 0
-  Message::Passing: 0
+  Message::Passing: 0.006
   Scalar::util: 0
 resources:
   repository: git://github.com/suretec/Log-Dispatch-Message-Passing.git
-version: 0.004
+version: 0.005
 x_authority: GHENRY
