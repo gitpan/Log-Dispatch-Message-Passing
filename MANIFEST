@@ -14,6 +14,7 @@ inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Log/Dispatch/Message/Passing.pm
+Log-Dispatch-Message-Passing-0.005.tar.gz
 Makefile.PL
 MANIFEST			This list of files
 MANIFEST.SKIP
