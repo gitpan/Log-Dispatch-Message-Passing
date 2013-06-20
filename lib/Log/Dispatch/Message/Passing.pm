@@ -6,7 +6,7 @@ use strict;
 use Scalar::Util qw/ blessed /;
 use Carp qw/ confess /;
 
-our $VERSION = '0.008';
+our $VERSION = '0.009';
 
 sub new {
   my ($class, %arg) = @_;
@@ -27,10 +27,6 @@ sub new {
 
 sub log_message {
   my ($self, %p) = @_;
-  if ($p{level} =~ /^\d+$/) {
-      require Log::Dispatch::Util;
-      $p{level} = $Log::Dispatch::Util::LevelNames[ $p{level} ];
-  }
   $self->{output}->consume({%p});
 }
 
